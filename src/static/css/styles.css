@@ -1,29 +1,31 @@
 body {
-    background-color: #f4f4f4;
+    background-color: #121212; /* deep black background */
     margin-top: 50px;
     font-family: 'Lato';
+    color: #e0e0e0; /* light text for readability */
 }
 
 .item {
-    background-color: white;
+    background-color: #1e1e1e; /* dark gray card background */
     padding: 15px;
     margin-bottom: 15px;
     border: transparent;
     border-radius: 5px;
-    box-shadow: 0 0 1em #ccc;
+    box-shadow: 0 0 1em #000; /* subtle shadow */
     transition: all .2s ease-in-out;
 }
 
 .item:hover {
-    box-shadow: 0 0 1em #aaa;
+    box-shadow: 0 0 1em #333; /* lighter shadow on hover */
 }
 
 .item.completed {
     text-decoration: line-through;
+    color: #888; /* dimmed text for completed items */
 }
 
 .toggles {
-    color: black;
+    color: #e0e0e0; /* light toggle text */
 }
 
 .name {
@@ -32,8 +34,9 @@ body {
 
 .remove {
     padding-left: 0;
+    color: #ff4d4d; /* red accent for remove button */
 }
 
 button:focus {
-    border: 1px solid #333;
+    border: 1px solid #888; /* lighter border for focus */
 }
