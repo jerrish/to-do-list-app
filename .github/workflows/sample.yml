@@ -1,12 +1,22 @@
-name: Hello
+name: CICD
 
 on: push
+
+env:
+  IMAGE_NAME: jerrish/demo-app
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    
-      - name: Print Hello
-        run: echo "Hello This is Actions Class"
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t $IMAGE_NAME:v${{ github.run_number }} .
+
+      - name: Login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Push
+        run: docker push $IMAGE_NAME:v${{ github.run_number }}
